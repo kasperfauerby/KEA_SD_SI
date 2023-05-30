@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pythton"
+version = "0.1.0"
+description = ""
+authors = ["kasper <kasperkbf@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+redis = "3.0.504"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

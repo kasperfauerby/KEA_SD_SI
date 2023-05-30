@@ -2,7 +2,7 @@ const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
-const secret = 'your-webhook-secret'; // Replace with your own secret
+const secret = 'secret'; // Replace with your own secret
 
 // Define a route to handle the GitHub webhook events
 app.post('/webhook', (req, res) => {

@@ -1,0 +1,9 @@
+query {
+  blogs {
+    blogs {
+      id
+      title
+      description
+    }
+  }
+}
