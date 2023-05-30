@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: My OpenAPI App
+  description: Sample API using OpenAPI
+  version: 1.0.0
+paths:
+  /hello:
+    get:
+      summary: Returns a greeting message
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /books:
+    get:
+      summary: Retrieves all books
+      responses:
+        '200':
+          description: List of books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    post:
+      summary: Creates a new book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookInput'
+      responses:
+        '201':
+          description: Book created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+  /books/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: ID of the book to retrieve
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Retrieves a specific book by ID
+      responses:
+        '200':
+          description: Book details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+    put:
+      summary: Updates a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookInput'
+      responses:
+        '200':
+          description: Book updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+    delete:
+      summary: Deletes a book
+      responses:
+        '204':
+          description: Book deleted successfully
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        author:
+          type: string
+      example:
+        id: 1
+        title: "The Great Gatsby"
+        author: "F. Scott Fitzgerald"
+    BookInput:
+      type: object
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+      example:
+        title: "To Kill a Mockingbird"
+        author: "Harper Lee"

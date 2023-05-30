@@ -1,0 +1,12 @@
+<car>
+<Name>chevrolet chevelle malibu</Name>
+    <Miles_per_Gallon>18</Miles_per_Gallon>
+    <Cylinders>8</Cylinders>
+    <Displacement>307</Displacement>
+    <Horsepower>130</Horsepower>
+    <Weight_in_lbs>3504</Weight_in_lbs>
+    <Acceleration>12</Acceleration>
+    <Year>1970-01-01</Year>
+    <Origin>USA</Origin>
+
+</car>

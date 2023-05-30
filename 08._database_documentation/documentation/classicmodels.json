@@ -1,0 +1,369 @@
+{
+    "schema": [
+        {
+            "table": "customers",
+            "columns": [
+                {
+                    "field": "customerNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "customerName",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "contactLastName",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "contactFirstName",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "phone",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "addressLine1",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "addressLine2",
+                    "type": "varchar(50)",
+                    "null": "YES"
+                },
+                {
+                    "field": "city",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "state",
+                    "type": "varchar(50)",
+                    "null": "YES"
+                },
+                {
+                    "field": "postalCode",
+                    "type": "varchar(15)",
+                    "null": "YES"
+                },
+                {
+                    "field": "country",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "salesRepEmployeeNumber",
+                    "type": "int",
+                    "null": "YES",
+                    "key": "MUL",
+                    "keyTo": [
+                        "employees.employeeNumber"
+                    ]
+                },
+                {
+                    "field": "creditLimit",
+                    "type": "decimal(10,2)",
+                    "null": "YES"
+                }
+            ]
+        },
+        {
+            "table": "employees",
+            "columns": [
+                {
+                    "field": "employeeNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "lastName",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "firstName",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "extension",
+                    "type": "varchar(10)",
+                    "null": "NO"
+                },
+                {
+                    "field": "email",
+                    "type": "varchar(100)",
+                    "null": "NO"
+                },
+                {
+                    "field": "officeCode",
+                    "type": "varchar(10)",
+                    "null": "NO",
+                    "key": "MUL",
+                    "keyTo": [
+                        "offices.officeCode"
+                    ]
+                },
+                {
+                    "field": "reportsTo",
+                    "type": "int",
+                    "null": "YES",
+                    "key": "MUL",
+                    "keyTo": [
+                        "employees.employeeNumber"
+                    ]
+                },
+                {
+                    "field": "jobTitle",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                }
+            ]
+        },
+        {
+            "table": "offices",
+            "columns": [
+                {
+                    "field": "officeCode",
+                    "type": "varchar(10)",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "city",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "phone",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "addressLine1",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "addressLine2",
+                    "type": "varchar(50)",
+                    "null": "YES"
+                },
+                {
+                    "field": "state",
+                    "type": "varchar(50)",
+                    "null": "YES"
+                },
+                {
+                    "field": "country",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "postalCode",
+                    "type": "varchar(15)",
+                    "null": "NO"
+                },
+                {
+                    "field": "territory",
+                    "type": "varchar(10)",
+                    "null": "NO"
+                }
+            ]
+        },
+        {
+            "table": "orderdetails",
+            "columns": [
+                {
+                    "field": "orderNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "productCode",
+                    "type": "varchar(15)",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "quantityOrdered",
+                    "type": "int",
+                    "null": "NO"
+                },
+                {
+                    "field": "priceEach",
+                    "type": "decimal(10,2)",
+                    "null": "NO"
+                },
+                {
+                    "field": "orderLineNumber",
+                    "type": "smallint",
+                    "null": "NO"
+                }
+            ]
+        },
+        {
+            "table": "orders",
+            "columns": [
+                {
+                    "field": "orderNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "orderDate",
+                    "type": "date",
+                    "null": "NO"
+                },
+                {
+                    "field": "requiredDate",
+                    "type": "date",
+                    "null": "NO"
+                },
+                {
+                    "field": "shippedDate",
+                    "type": "date",
+                    "null": "YES"
+                },
+                {
+                    "field": "status",
+                    "type": "varchar(15)",
+                    "null": "NO"
+                },
+                {
+                    "field": "comments",
+                    "type": "text",
+                    "null": "YES"
+                },
+                {
+                    "field": "customerNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "MUL",
+                    "keyTo": [
+                        "customers.customerNumber"
+                    ]
+                }
+            ]
+        },
+        {
+            "table": "payments",
+            "columns": [
+                {
+                    "field": "customerNumber",
+                    "type": "int",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "checkNumber",
+                    "type": "varchar(50)",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "paymentDate",
+                    "type": "date",
+                    "null": "NO"
+                },
+                {
+                    "field": "amount",
+                    "type": "decimal(10,2)",
+                    "null": "NO"
+                }
+            ]
+        },
+        {
+            "table": "productlines",
+            "columns": [
+                {
+                    "field": "productLine",
+                    "type": "varchar(50)",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "textDescription",
+                    "type": "varchar(4000)",
+                    "null": "YES"
+                },
+                {
+                    "field": "htmlDescription",
+                    "type": "mediumtext",
+                    "null": "YES"
+                },
+                {
+                    "field": "image",
+                    "type": "mediumblob",
+                    "null": "YES"
+                }
+            ]
+        },
+        {
+            "table": "products",
+            "columns": [
+                {
+                    "field": "productCode",
+                    "type": "varchar(15)",
+                    "null": "NO",
+                    "key": "PRI"
+                },
+                {
+                    "field": "productName",
+                    "type": "varchar(70)",
+                    "null": "NO"
+                },
+                {
+                    "field": "productLine",
+                    "type": "varchar(50)",
+                    "null": "NO",
+                    "key": "MUL",
+                    "keyTo": [
+                        "productlines.productLine"
+                    ]
+                },
+                {
+                    "field": "productScale",
+                    "type": "varchar(10)",
+                    "null": "NO"
+                },
+                {
+                    "field": "productVendor",
+                    "type": "varchar(50)",
+                    "null": "NO"
+                },
+                {
+                    "field": "productDescription",
+                    "type": "text",
+                    "null": "NO"
+                },
+                {
+                    "field": "quantityInStock",
+                    "type": "smallint",
+                    "null": "NO"
+                },
+                {
+                    "field": "buyPrice",
+                    "type": "decimal(10,2)",
+                    "null": "NO"
+                },
+                {
+                    "field": "MSRP",
+                    "type": "decimal(10,2)",
+                    "null": "NO"
+                }
+            ]
+        }
+    ]
+}
